@@ -4,7 +4,6 @@ import com.godstimeProjects2023.librarySystem.entity.Book;
 import com.godstimeProjects2023.librarySystem.entity.Category;
 import com.godstimeProjects2023.librarySystem.mapper.BookRowMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
