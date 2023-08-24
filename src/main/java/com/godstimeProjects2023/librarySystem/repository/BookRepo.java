@@ -5,7 +5,6 @@ import com.godstimeProjects2023.librarySystem.entity.Category;
 import com.godstimeProjects2023.librarySystem.mapper.BookRowMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -73,14 +72,17 @@ public class BookRepo {
         return book;
     }
     public Book addNewBooks(Book book) {
-        String insertSql = "INSERT INTO book(title, authors, category, ... ) VALUES (?, ?, ?, ...)";
+        String insertSql = "INSERT INTO book(title, authors, category, status, tag) VALUES (?, ?, ?, ?, ?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, book.getTitle());
             ps.setString(2, book.getAuthors());
             ps.setString(3, String.valueOf(book.getCategory()));
-            // Set other parameters here
+            ps.setString(2, book.getPublisher());
+            ps.setString(2, String.valueOf(book.getStatus()));
+            ps.setString(2, book.getTag());
+
             return ps;
         }, keyHolder);
         book.setId((Long) keyHolder.getKeys().get("id"));
