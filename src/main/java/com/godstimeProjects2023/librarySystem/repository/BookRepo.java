@@ -12,6 +12,8 @@ import org.springframework.util.StringUtils;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -78,7 +80,12 @@ public class BookRepo {
             PreparedStatement ps = connection.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, book.getTitle());
             ps.setString(2, book.getAuthors());
+
+            ps.setLong(3, book.getCategory().getId());
             ps.setString(3, String.valueOf(book.getCategory()));
+
+            ps.setTimestamp(4, Timestamp.valueOf(LocalDateTime.now())); // Set current date and time
+
             ps.setString(2, book.getPublisher());
             ps.setString(2, String.valueOf(book.getStatus()));
             ps.setString(2, book.getTag());

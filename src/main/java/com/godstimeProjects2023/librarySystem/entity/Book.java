@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -57,6 +58,6 @@ public class Book implements Serializable {
 
     @JsonFormat(pattern = "dd-MM-yyyy")
     @Column(name = "created_Date")
-    private Date createdDate;
+    private LocalDateTime createdDate;
 
 }

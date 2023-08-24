@@ -56,7 +56,7 @@ public class Member implements Serializable {
 
 
     @JsonFormat(pattern="dd-MM-yyyy")
-    @NotNull(message = "*Please enter birth date")
+    @NotNull(message = "*Please enter your date of birth")
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
 
@@ -72,16 +72,16 @@ public class Member implements Serializable {
     private String email;
 
 
-    public Member(@NotNull String type, @NotNull String firstName, @NotNull String middleName, @NotNull String lastName,
-                  @NotNull String gender, @NotNull Date dateOfBirth, @NotNull Date joiningDate) {
-        super();
-        this.type = type;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.dateOfBirth = dateOfBirth;
-        this.joiningDate = joiningDate;
-    }
+//    public Member(@NotNull String type, @NotNull String firstName, @NotNull String middleName, @NotNull String lastName,
+//                  @NotNull String gender, @NotNull Date dateOfBirth, @NotNull Date joiningDate) {
+//        super();
+//        this.type = type;
+//        this.firstName = firstName;
+//        this.middleName = middleName;
+//        this.lastName = lastName;
+//        this.gender = gender;
+//        this.dateOfBirth = dateOfBirth;
+//        this.joiningDate = joiningDate;
+//    }
 
 }
