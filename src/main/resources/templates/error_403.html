@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container mb-5 mt-5">
+		<div class="col-6 mx-auto card bg-danger text-white">
+			<div class="card-header">Error: Access Denied!</div>
+			<div class="card-body">
+				<h5 class="card-title">
+					We're sorry, <span th:text="${#authentication.name}"></span>, you do NOT have permission to access this resource.
+				</h5>
+				<a th:href="@{/books/book-list}" class="btn btn-outline-light" role="button">Go
+					to Homepage</a>
+
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
