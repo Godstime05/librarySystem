@@ -1,6 +1,7 @@
 package com.godstimeProjects2023.librarySystem.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.godstimeProjects2023.librarySystem.security.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -10,19 +11,21 @@ import org.springframework.data.annotation.CreatedDate;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "user")
-public class User implements Serializable {
+@Table(name = "users")
+public class User //implements Serializable
+{
     /**
      * written by Inibehe Ekanem(Godstime05)
      *
      */
 
-    private static final long serialVersionUID = 1L;
+    //private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +36,7 @@ public class User implements Serializable {
     private String name;
 
     @NotNull
-    @Column(name = "username")
+    @Column(unique = true, name = "username")
     private String username;
 
     @NotNull
@@ -44,9 +47,16 @@ public class User implements Serializable {
     @Column(name = "active")
     private Integer active;
 
-    @NotNull
-    @Column(name = "role")
-    private String role;
+//    @NotNull
+//    @Column(name = "role")
+//    private String role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+    )
+    private List<Role> roles;
 
     @JsonFormat(pattern = "dd-MM-yyyy")
     @CreatedDate
