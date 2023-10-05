@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/books")
+@RequestMapping("api/v1/books")
 @RequiredArgsConstructor
 public class BookController {
 
@@ -47,7 +47,7 @@ public class BookController {
         return ResponseEntity.ok(updatedBook);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id0}")
     public ResponseEntity<Book> getBookById0(@PathVariable Long id) {
         Optional<Book> book = bookService.getBookById(id);
         return book.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
@@ -71,7 +71,7 @@ public class BookController {
         return Constants.getResponse(Constants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @GetMapping
+    @GetMapping("/getAll0")
     public ResponseEntity<List<Book>> getAllBooks0() {
         List<Book> books = bookService.getAllBooks();
         return ResponseEntity.ok(books);
@@ -183,7 +183,7 @@ public class BookController {
     @GetMapping("/availableByCategory/{category}")
     public ResponseEntity<String> getAvailableBooksByCategory(@PathVariable String name) {
 
-        Optional <Category>category = categoryService.getCategory(name);
+        Optional <Category>category = categoryService.getCategoryByName(name);
         try {
             if (category.isPresent()){
                 List<Book> books = bookService.getAvailableBooksByCategory(category.get());

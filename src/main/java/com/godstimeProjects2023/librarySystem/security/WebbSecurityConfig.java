@@ -29,8 +29,9 @@ public class WebbSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity
                 .authorizeHttpRequests(config -> config
-                        .requestMatchers("/", "/book","/search","/contact")
+                        .requestMatchers("/", "/book","/search/**","/contact")
                         .permitAll()
+                        .requestMatchers("/registration", "/signup", "/api/v1/**").permitAll()
                         .requestMatchers("/css/**","/image/**","/js/**").permitAll()
                         .requestMatchers("/account/**").hasRole("USER")
                         .requestMatchers("/addBookToLIst","/account/books/**").hasRole("USER")

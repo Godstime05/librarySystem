@@ -50,14 +50,14 @@ public class Book implements Serializable {
     @Column(name = "tag")
     private String tag;
 
-    @Column(name = "tag")
+    @Column(name = "isbn")
     private String isbn;
 
-    @Column(name = "tag")
+    @Column(name = "status")
     private Integer status;
 
     @JsonFormat(pattern = "dd-MM-yyyy")
     @Column(name = "created_Date")
-    private LocalDateTime createdDate;
+    private Date createdDate;
 
 }

@@ -29,7 +29,7 @@ public class Issued implements Serializable {
     @JsonFormat(pattern="dd-MM-yyyy")
     @NotNull
     @Column(name = "issued_date")
-    private Date issueDate;
+    private Date issuedDate;
 
     @Column(name = "notes")
     private String notes;

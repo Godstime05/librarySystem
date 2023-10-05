@@ -42,7 +42,6 @@ public class CategoryRepo {
                 ps.setString(2, category.getShortName());
                 ps.setString(3, category.getNotes());
                 ps.setTimestamp(4, Timestamp.valueOf(LocalDateTime.now()));
-                ps.setString(1, category.getName());
 
                 return ps;
             }, keyHolder);
@@ -83,27 +82,16 @@ public class CategoryRepo {
             return categories.isEmpty() ? Optional.empty() : Optional.of(categories.get(0));
         }
 
-//        public boolean hasUsage(Category category) {
-//            // Implement logic to check if the category has any usage (e.g., associated books)
-//            return false; // Replace with actual implementation
-//        }
-
     public boolean hasUsage(Category category) {
         String sql = "SELECT COUNT(*) FROM book WHERE category_id = ?";
         Long count = jdbcTemplate.queryForObject(sql, Long.class, category.getId());
         return count != null && count > 0;
     }
-//    public boolean hasUsage(Category category) {
-//        String sql = "SELECT COUNT(*) FROM book WHERE category_id = ?";
-//        Long count = jdbcTemplate.queryForObject(sql, Long.class, category.getId());
-//        return count > 0;
-//    }
-
 
     public void deleteCategory(Long id) {
             String deleteSql = "DELETE FROM category WHERE id = ?";
             jdbcTemplate.update(deleteSql, id);
-        }
+    }
 
         public void deleteCategoryByCategoryObject(Category category) {
             deleteCategory(category.getId());

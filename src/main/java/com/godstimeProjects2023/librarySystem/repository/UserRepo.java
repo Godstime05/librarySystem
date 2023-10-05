@@ -50,7 +50,7 @@ public class UserRepo{
             ps.setString(2, user.getUsername());
             ps.setString(3, user.getPassword());
             ps.setInt(4, user.getActive());
-            ps.setString(5, user.getRole());
+            ps.setString(5, user.getRoles().toString());
             ps.setDate(6, new java.sql.Date(user.getCreatedDate().getTime())); // Assuming createdDate is of type java.util.Date
             ps.setDate(7, new java.sql.Date(user.getLastModifiedDate().getTime())); // Assuming lastModifiedDate is of type java.util.Date
 

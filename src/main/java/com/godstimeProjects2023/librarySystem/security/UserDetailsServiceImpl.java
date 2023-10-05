@@ -1,5 +1,6 @@
 package com.godstimeProjects2023.librarySystem.security;
 
+import com.godstimeProjects2023.librarySystem.entity.Role;
 import com.godstimeProjects2023.librarySystem.entity.User;
 import com.godstimeProjects2023.librarySystem.repository.UserRepo;
 import org.springframework.security.core.GrantedAuthority;

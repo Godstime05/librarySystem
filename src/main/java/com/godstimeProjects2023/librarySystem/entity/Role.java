@@ -1,4 +1,4 @@
-package com.godstimeProjects2023.librarySystem.security;
+package com.godstimeProjects2023.librarySystem.entity;
 
 
 import com.godstimeProjects2023.librarySystem.entity.User;
@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "role")
+@Table(name = "roles")
 public class Role {
 
     @Id
@@ -26,13 +26,16 @@ public class Role {
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
 
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", roleName='" + roleName + '\'' +
-                '}';
+    public Role(String roleName) {
     }
+
+//    @Override
+//    public String toString() {
+//        return "Role{" +
+//                "id=" + id +
+//                ", roleName='" + roleName + '\'' +
+//                '}';
+//    }
 
 }
 

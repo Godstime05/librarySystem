@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("api/v1/users")
 public class UserController {
 
     private final UserService userService;
@@ -20,7 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
@@ -32,9 +32,9 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
     }
 
-    @PostMapping("/register")
+    @PostMapping("/signup")
     public ResponseEntity<User> registerUser(@RequestBody User user) {
-        User registeredUser = userService.registerUser(user);
+        User registeredUser = userService.addNewUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(registeredUser);
     }
 
@@ -47,7 +47,7 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
-    @PostMapping("/validate")
+    @PostMapping("/login")
     public ResponseEntity<User> validateUser(@RequestBody User user) {
         User validatedUser = userService.getUserByUsernameAndPassword(user.getUsername(), user.getPassword());
         if (validatedUser == null) {

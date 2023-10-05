@@ -46,8 +46,10 @@ public class MemberRepo {
             ps.setString(3, member.getMiddleName());
             ps.setString(4, member.getLastName());
             ps.setString(5, member.getGender());
+
             ps.setDate(6, (Date) member.getDateOfBirth());
-            ps.setDate(7, (Date) member.getJoiningDate());
+            ps.setDate(7, new java.sql.Date(member.getJoiningDate().getTime()));
+//            ps.setDate(7, (Date) member.getJoiningDate());
             ps.setString(8, member.getContact());
             ps.setString(9, member.getEmail());
 

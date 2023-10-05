@@ -30,7 +30,7 @@ public class BookRowMapper implements RowMapper<Book> {
         // Set the current date and time for the date field
         Timestamp timestamp = rs.getTimestamp("created_Date");
         if (timestamp != null) {
-            book.setCreatedDate(timestamp.toLocalDateTime());
+            book.setCreatedDate(timestamp);
         }
         return book;
     }

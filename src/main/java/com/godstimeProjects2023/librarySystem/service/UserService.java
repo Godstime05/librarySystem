@@ -35,8 +35,8 @@ public class UserService {
         return userRepository.getByUsername(username);
     }
 
-    public User registerUser(User user) {
-        return userRepository.registerUser(user);
-    }
+//    public User registerUser(User user) {
+//        return userRepository.registerUser(user);
+//    }
 }
 
