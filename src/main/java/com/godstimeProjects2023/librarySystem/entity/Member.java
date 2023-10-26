@@ -30,36 +30,33 @@ public class Member implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @NotEmpty(message = "*Please select member type")
-    @NotNull(message = "please Select Member Type")
+    @NotEmpty(message = "Select member type")
+    @NotNull(message = "Select Member Type")
     @Column(name = "type")
     private String type;
 
-    @NotEmpty(message = "*Please enter fisrt name")
-    @NotNull(message = "*Please enter fisrt name")
+    @NotEmpty(message = "*Please enter first name")
+    @NotNull(message = "*Please enter first name")
     @Column(name = "first_name")
     private String firstName;
 
-    @NotEmpty(message = "*Please enter middle name")
-    @NotNull(message = "*Please enter middle name")
+    @NotEmpty(message = "Enter middle name")
+    @NotNull(message = "Enter middle name")
     @Column(name = "middle_name")
     private String middleName;
 
     @Column(name = "last_name")
     private String lastName;
 
-
-    @NotEmpty(message = "*Please select gender")
-    @NotNull(message = "*Please select gender")
+    @NotEmpty(message = "Select gender")
+    @NotNull(message = "Select gender")
     @Column(name = "gender")
     private String gender;
 
-
     @JsonFormat(pattern="dd-MM-yyyy")
-    @NotNull(message = "*Please enter your date of birth")
+    @NotNull(message = "Enter your date of birth")
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
-
 
     @JsonFormat(pattern="dd-MM-yyyy")
     @Column(name = "joining_date")
@@ -70,18 +67,5 @@ public class Member implements Serializable {
 
     @Column(name = "email")
     private String email;
-
-
-//    public Member(@NotNull String type, @NotNull String firstName, @NotNull String middleName, @NotNull String lastName,
-//                  @NotNull String gender, @NotNull Date dateOfBirth, @NotNull Date joiningDate) {
-//        super();
-//        this.type = type;
-//        this.firstName = firstName;
-//        this.middleName = middleName;
-//        this.lastName = lastName;
-//        this.gender = gender;
-//        this.dateOfBirth = dateOfBirth;
-//        this.joiningDate = joiningDate;
-//    }
 
 }

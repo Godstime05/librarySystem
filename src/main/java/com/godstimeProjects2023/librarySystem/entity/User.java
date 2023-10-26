@@ -65,11 +65,4 @@ public class User //implements Serializable
     @Column(name = "last_modified_date")
     private Date lastModifiedDate;
 
-//    public User(@NotNull String name, @NotNull String username, @NotNull String password, @NotNull String role) {
-//        super();
-//        this.name = name;
-//        this.username = username;
-//        this.password = password;
-//        this.role = role;
-//    }
 }

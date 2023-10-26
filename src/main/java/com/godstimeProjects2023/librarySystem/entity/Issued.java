@@ -9,6 +9,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -46,6 +47,10 @@ public class Issued implements Serializable {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "issued", cascade = CascadeType.ALL)
+    private List<IssuedBooks> issuedBooks;
 
 }
 

@@ -29,13 +29,5 @@ public class Role {
     public Role(String roleName) {
     }
 
-//    @Override
-//    public String toString() {
-//        return "Role{" +
-//                "id=" + id +
-//                ", roleName='" + roleName + '\'' +
-//                '}';
-//    }
-
 }
 
