@@ -26,12 +26,17 @@ public class Category implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
+<<<<<<< HEAD
     @NotNull(message = "Enter category name")
     @NotBlank(message = "Enter category name")
+=======
+    @NotNull(message = "Please enter category name")
+    @NotBlank(message = "Please enter category name")
+>>>>>>> origin/main
     @Column(name = "name")
     private String name;
 

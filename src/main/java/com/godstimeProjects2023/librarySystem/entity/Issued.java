@@ -48,9 +48,13 @@ public class Issued implements Serializable {
     @JoinColumn(name = "member_id")
     private Member member;
 
+<<<<<<< HEAD
     @JsonIgnore
     @OneToMany(mappedBy = "issued", cascade = CascadeType.ALL)
     private List<IssuedBooks> issuedBooks;
+=======
+    private List<IssuedBook> issuedBooks;
+>>>>>>> origin/main
 
 }
 
