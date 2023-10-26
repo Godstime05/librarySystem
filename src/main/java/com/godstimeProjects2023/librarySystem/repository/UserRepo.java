@@ -37,7 +37,7 @@ public class UserRepo{
     }
 
     public List<User> getAllUsers() {
-        String sql = "SELECT * FROM user";
+        String sql = "SELECT * FROM users";
         return jdbcTemplate.query(sql, new UserRowMapper());
     }
 

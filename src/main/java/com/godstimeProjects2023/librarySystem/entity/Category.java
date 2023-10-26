@@ -30,19 +30,24 @@ public class Category implements Serializable {
     @Column(name = "id")
     private Long id;
 
+<<<<<<< HEAD
+    @NotNull(message = "Enter category name")
+    @NotBlank(message = "Enter category name")
+=======
     @NotNull(message = "Please enter category name")
     @NotBlank(message = "Please enter category name")
+>>>>>>> origin/main
     @Column(name = "name")
     private String name;
 
-    @NotNull(message = "*Please enter category short name")
-    @NotBlank(message = "*Please enter category short name")
-    @Size(max = 4, message = "*Must not exceed 4 characters.")
+    @NotNull(message = "*Enter category short name")
+    @NotBlank(message = "Enter category short name")
+    @Size(max = 4, message = "Short_name must not exceed 4 characters")
     @Column(name = "short_name")
     private String shortName;
 
     @Column(name = "notes")
-    @Size(max = 1000, message = "*Must not exceed 1000 characters.")
+    @Size(max = 1000, message = "Notes Must not exceed 1000 characters.")
     private String notes;
 
     @JsonFormat(pattern="dd-MM-yyyy")
