@@ -18,11 +18,6 @@ public class TokenService {
         this.jwtService = jwtService;
     }
 
-    public Token createAuthToken (String username){
-        var user = userRepo.findByUsername(username).orElseThrow();
-        var jwtToken=jwtService.generateToken(user);
 
-        return tokenRepo.save()
-    }
 
 }
