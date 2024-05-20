@@ -10,9 +10,13 @@ import lombok.NoArgsConstructor;
 import java.lang.annotation.Documented;
 import java.time.Instant;
 
-@Data
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Builder
 public class Token {
     @Id
