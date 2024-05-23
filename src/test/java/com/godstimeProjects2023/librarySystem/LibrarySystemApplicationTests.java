@@ -1,4 +1,4 @@
-package com.godstimeProjects2023.librarySystem;
+package com.godstimeProjects.librarySystem;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
